@@ -9,7 +9,9 @@ public class Agence extends Emprunteur{
 	public Agence(String pNom) {
 		nom=pNom;
 		employes=new ArrayList<Employe>();
-		
+		for(Employe emp : employes) {
+			this.stock.addAll(emp.listeMateriel());
+		}
 	}
 	public ArrayList<Employe> getEmployes() {
 		return employes;

@@ -11,6 +11,9 @@ public class Entreprise extends Emprunteur{
 		nomEntreprise=nom;
 		agences=new ArrayList<Agence>();
 		employes=new ArrayList<Employe>();
+		for(Agence a : agences) {
+			this.stock.addAll(a.listeMateriel());
+		}
 	}
 	public ArrayList<Agence> getAgences() {
 		return agences;
