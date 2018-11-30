@@ -2,11 +2,9 @@ package tpnote;
 
 public class VideoProjecteur extends Empruntable {
 
-	String id;
-	public VideoProjecteur(String pId) {
+ VideoProjecteur() {
 		super();
 		setLimitationPretAuxAgences(true);
-		id=pId;
 	}
 
 }

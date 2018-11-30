@@ -2,16 +2,23 @@ package tpnote;
 
 import java.util.ArrayList;
 
-public abstract class Emprunteur {
-	private ArrayList<Empruntable> stock;
+public class Emprunteur {
+	public ArrayList<Empruntable> stock;
 	
-	void ajouterAuStock(Empruntable emp) {
+	public Emprunteur() {
+		stock= new ArrayList<Empruntable>();
+	}
+	public Emprunteur(ArrayList<Empruntable> stock) {
+		this.stock = stock;
+	}
+
+	public void ajouterAuStock(Empruntable emp) {
 		stock.add(emp);
 	}
-	ArrayList<Empruntable> listeMateriel(){
+	public ArrayList<Empruntable> listeMateriel(){
 		return stock;
 	}
-	boolean perdreMateriel(Empruntable emp) {
+	public boolean perdreMateriel(Empruntable emp) {
 		return(stock.remove(emp));
 	}
 }

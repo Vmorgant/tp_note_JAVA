@@ -1,9 +1,10 @@
 package tpnote;
 
-public class Souris extends Empruntable {
+public class Ecran extends Empruntable {
 
-	public Souris() {
+	public Ecran() {
 		super();
 		setLimitationPretAuxAgences(false);
 	}
+
 }

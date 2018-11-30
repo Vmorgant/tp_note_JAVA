@@ -10,7 +10,7 @@ public class Administrateur extends Employe {
 	public boolean attribuerMateriel(Empruntable empruntable, Emprunteur emprunteur) {
 		if(empruntable.isDefectueux()==false && !(empruntable.isLimitationPretAuxAgences() && emprunteur instanceof Employe) ) {
 			emprunteur.ajouterAuStock(empruntable);
-			this.stockEntreprise(this.getEntreprise()).remove(empruntable);
+			this.stockEntreprise().remove(empruntable);
 			return true;
 		}
 		return false;
@@ -21,14 +21,14 @@ public class Administrateur extends Employe {
 	public ArrayList<Empruntable> stockEmploye(Employe emp){
 		return (emp.listeMateriel());
 	}
-	public ArrayList<Empruntable> stockEntreprise(Entreprise ent){
+	public ArrayList<Empruntable> stockEntreprise(){
 		ArrayList<Empruntable> list=new ArrayList<Empruntable>();
-		list.addAll(ent.listeMateriel());
+		list.addAll(this.stockEntreprise());
 		return (list);
 	}
-	public ArrayList<Empruntable> stockAgence(Agence age){
+	public ArrayList<Empruntable> stockAgence(){
 		ArrayList<Empruntable> list=new ArrayList<Empruntable>();
-		list.addAll(age.listeMateriel());
+		list.addAll(this.stockAgence());
 		return (list);
 	}
 	public void transfererMateriel(Emprunteur donneur, Empruntable materiel, Emprunteur recepteur) {
@@ -41,11 +41,11 @@ public class Administrateur extends Employe {
 	public void supprimerMateriel(Empruntable empruntable) {
 		this.perdreMateriel(empruntable);
 	}
-	public void supprimerMaterielEntreprise(Entreprise entreprise) {
-		supprimerMaterielDefectueuxDe(entreprise);
+	public void supprimerMaterielDefectueuxEntreprise() {
+		supprimerMaterielDefectueuxDe(this.getEntreprise());
 	}
-	public void supprimerMaterielAgence(Agence agence) {
-		supprimerMaterielDefectueuxDe(agence);
+	public void supprimerMaterielDefectueuxAgence() {
+		supprimerMaterielDefectueuxDe(this.getAgence());
 	}
 	private void supprimerMaterielDefectueuxDe(Emprunteur emprunteur) {
 		ArrayList<Empruntable> list=emprunteur.listeMateriel();

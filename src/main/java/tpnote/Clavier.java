@@ -1,8 +1,8 @@
 package tpnote;
 
-public class Souris extends Empruntable {
+public class Clavier extends Empruntable {
 
-	public Souris() {
+	public Clavier() {
 		super();
 		setLimitationPretAuxAgences(false);
 	}

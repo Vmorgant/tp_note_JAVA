@@ -4,6 +4,7 @@ public class Employe extends Emprunteur{
 	private Agence agence;
 	private Entreprise entreprise;
 	public Employe(Agence pAgence, Entreprise pEntreprise) {
+		super();
 		agence=pAgence;
 		entreprise=pEntreprise;
 	}
